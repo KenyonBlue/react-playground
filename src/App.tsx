@@ -26,38 +26,6 @@ function App() {
     setTeam(x)
   }
 
-  const entry = {
-    children: [
-      {
-        name: 'header',
-        children: [
-          {
-            name: 'h1',
-            children: [
-              {
-                name: 'a',
-                children: []
-              }
-            ]
-          }
-        ]
-      },
-      { name: 'div' },
-      {
-        name: 'div',
-        children: [
-          {
-            name: 'h2',
-            children: []
-          },
-          {
-            name: 'p',
-            children: []
-          }
-        ]
-      },
-    ]
-  }
 
   return (
     <Routes  >
@@ -65,9 +33,9 @@ function App() {
       <Route path="/" element={
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: 24 }}>
                    <Header reset={reset} sortByJersy={sortByJersy} />
-
+          <Playerform setTeam={setTeam} />
           <Team deletePlayer={deletePlayer} team={team} />
-          <ComponentTree entry={entry} />
+          <ComponentTree/>
           <RandomStuffapi />
         </div>
       } />
@@ -76,6 +44,7 @@ function App() {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: 24 }}>
           <Header reset={reset} sortByJersy={sortByJersy} />
           <Team deletePlayer={deletePlayer} team={team} />
+          <RandomStuffapi />
         </div>
       } />
 

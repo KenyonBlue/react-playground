@@ -1,4 +1,5 @@
 import React from 'react'
+import applyEntry from '../higherOrderComponents/applyEntry'
 
 const ComponentTree = ({entry}: any) => {
     return (
@@ -16,4 +17,4 @@ const ComponentTree = ({entry}: any) => {
     )
 }
 
-export default ComponentTree
+export default applyEntry(ComponentTree)

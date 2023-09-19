@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import useFetch from '../hooks/useFetch';
+import FetchComponent from '../higherOrderComponents/fetchComponent';
 
 export interface Person {
     name: {
@@ -10,8 +11,7 @@ export interface Person {
     // Add more fields as needed
 }
   
-const RandomStuffapi = () => {
-    const { data, loading, error } = useFetch('https://randomuser.me/api/?results=10');
+const RandomStuffapi = ({data, loading, error}: any) => {
 
     useEffect(() => {
         console.log(data);
@@ -24,4 +24,4 @@ const RandomStuffapi = () => {
     );
 }
 
-export default RandomStuffapi;
+export default FetchComponent(RandomStuffapi);
