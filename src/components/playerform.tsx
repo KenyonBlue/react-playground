@@ -5,18 +5,24 @@ interface PlayerformProps {
     setTeam: (team: any) => void
 }
 
-const Playerform = ({setTeam}: PlayerformProps) => {
-    const [firstName, setFirstName] = React.useState('')
-    const [lastName, setlastName] = React.useState('')
-    const [position, setposition] = React.useState('')
-    const [jerseyNumber, setjerseyNumber] = React.useState('')
+const Playerform = ({ setEditPlayer, editPlayer, setjerseyNumber, setTeam, setFirstName, setlastName, setposition, firstName, lastName, position, jerseyNumber}: any) => {
+  
 
     function addPlayer(e: Event | FormEvent<HTMLFormElement>) {
         e.preventDefault()
         console.log(firstName, lastName, position, jerseyNumber);
+        if (editPlayer !== -1) {
+            setTeam((prevTeam: IFootballTeam[]) => {
+                prevTeam[editPlayer] = { firstName, lastName, position, jerseyNumber }
+                console.log(prevTeam);
+                return [...prevTeam]
+        });
+        setEditPlayer(-1);
+    } else {
         setTeam((prevTeam: IFootballTeam[]) => {
             return [...prevTeam, { firstName, lastName, position, jerseyNumber }]
-        });
+    });
+        }
         setFirstName('')
         setlastName('')
         setposition('')

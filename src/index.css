@@ -15,3 +15,10 @@ code {
 .test {
   color: red;
 }
+
+.parent > .child:nth-child(3) {
+  flex-grow: 1;
+}
+.parent > .child:nth-child(4) {
+  flex-grow: 2;
+}
